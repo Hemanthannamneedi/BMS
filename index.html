@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none; /* for Internet Explorer, Edge */
+            scrollbar-width: none; /* for Firefox */
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
+        }
+
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 40px) scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+    <div class="relative min-h-screen overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-50 pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-20 right-1/4 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <header class="relative z-10 w-full p-4 md:p-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-5xl font-bold text-indigo-400 tracking-tight">Budget Management Portal</div>
+                <div class="flex space-x-4">
+                    <a href="{{ url_for('home') }}" class="text-gray-400 hover:text-indigo-400 transition duration-300 font-semibold">Home</a>
+
+                    <a href="{{ url_for('about') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">About</a>
+                    
+                    <a href="{{ url_for('contact') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">Contact</a>
+                </div>
+                <a href="{{ url_for('login_admin')}}" class="text-indigo-400 px-8 py-3 rounded-lg hover:bg-gray-800 transition duration-300 text-base font-semibold">Admin Login &rarr;</a>
+            </div>
+        </header>
+
+        <main class="relative z-10 flex flex-col items-center justify-center pt-12 pb-8 px-4 text-center">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-3/5 md:text-left">
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">Fund Management Made Easy. <a href="#features-section" class="text-indigo-400 font-semibold hover:underline">Learn more &rarr;</a></p>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
+                        Budget Management Portal
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10">
+                        This portal is designed to make student club fund management easy, transparent, and efficient.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-20 md:mb-0">
+                        <a href="{{ url_for('signup_member') }}" class="bg-indigo-600 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 text-base font-semibold">Get Started</a>
+                        <a href="{{ url_for('login_member') }}" class="text-indigo-400 px-8 py-3 rounded-lg hover:bg-gray-800 transition duration-300 text-base font-semibold">Sign In &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="md:w-2/5 mx-auto">
+                    <svg class="w-full h-auto" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="250" y="250" width="200" height="200" rx="24" fill="#6B21A8" fill-opacity="0.3"/>
+                        <rect x="50" y="150" width="200" height="200" rx="24" fill="#4338CA" fill-opacity="0.3"/>
+                        <rect x="150" y="50" width="200" height="200" rx="24" fill="#3B82F6" fill-opacity="0.3"/>
+                        <path d="M250 250H450V450H250V250Z" fill="#8B5CF6"/>
+                        <path d="M50 150H250V350H50V150Z" fill="#6366F1"/>
+                        <path d="M150 50H350V250H150V50Z" fill="#3B82F6"/>
+                        <circle cx="250" cy="250" r="40" fill="white"/>
+                        <path d="M250 250L250 200" stroke="#1F2937" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M250 250L300 250" stroke="#1F2937" stroke-width="8" stroke-linecap="round"/>
+                        <text x="250" y="270" text-anchor="middle" fill="#1F2937" font-size="20" font-weight="bold">Data</text>
+                    </svg>
+                </div>
+            </div>
+
+            <hr class="w-full max-w-5xl my-12 border-t-2 border-gray-700">
+
+            
+        </main>
+
+        <main id="features-section" class="relative z-10 flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center">
+            <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+                <div class="md:w-1/2 md:text-left">
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
+                        Key Features
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10">
+                        Explore the powerful tools and functionalities of our Budget Management Portal.
+                    </p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div id="carousel-container" class="flex flex-nowrap space-x-4 overflow-x-scroll pb-4 hide-scrollbar">
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/4F46E5/FFFFFF?text=Fund+Requests" alt="Fund Requests feature" class="rounded-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/10B981/FFFFFF?text=Member+Management" alt="Member Management feature" class="rounded-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/8B5CF6/FFFFFF?text=Expense+Tracking" alt="Expense Tracking feature" class="rounded-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/F59E0B/FFFFFF?text=Reporting" alt="Reporting feature" class="rounded-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/DC2626/FFFFFF?text=Security" alt="Security feature" class="rounded-lg">
+                        </div>
+                        <div class="flex-shrink-0 w-80 h-60 bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md border border-gray-700 flex items-center justify-center snap-center">
+                            <img src="https://placehold.co/300x200/EC4899/FFFFFF?text=Collaboration" alt="Collaboration feature" class="rounded-lg">
+                        </div>
+                    </div>
+                    <div class="absolute inset-y-0 left-0 flex items-center">
+                        <button id="prevBtn" class="bg-gray-800/70 text-gray-200 p-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center">
+                        <button id="nextBtn" class="bg-gray-800/70 text-gray-200 p-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="w-full max-w-5xl my-12 border-t-2 border-gray-700">
+
+            <div class="w-full max-w-5xl text-left mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-dollar-sign text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Fund Requests</h3>
+                        <p class="text-gray-400">
+                            Members can easily request funds for their events and track the status of their requests through the system.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-users text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Member Management</h3>
+                        <p class="text-gray-400">
+                            Admins can add new members, approve their requests, and effectively manage all club members.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-purple-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-chart-line text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Expense Tracking</h3>
+                        <p class="text-gray-400">
+                            An easy-to-use dashboard is available to track all transactions and budget expenses, ensuring complete transparency.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-yellow-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-file-invoice-dollar text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Reporting</h3>
+                        <p class="text-gray-400">
+                            Comprehensive reports on the club's financial status can be easily generated and viewed.
+                        </p>
+                    </div>
+                     <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-red-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-shield-halved text-red-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Security</h3>
+                        <p class="text-gray-400">
+                            Top priority is given to the security of club information and data, so your data is always safe.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 text-center border border-gray-700 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                        <div class="bg-pink-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-handshake text-pink-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Collaboration</h3>
+                        <p class="text-gray-400">
+                            This portal promotes collaboration between club members and admins, allowing everyone to work together on one platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel-container');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const scrollAmount = 352; // Width of one item (w-80) plus the gap (space-x-4 which is 16px)
+
+            function updateButtonState() {
+                prevBtn.disabled = carousel.scrollLeft <= 0;
+                nextBtn.disabled = carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+                // Use a timeout to update the button state after the scroll animation
+                setTimeout(updateButtonState, 500); 
+            });
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                // Use a timeout to update the button state after the scroll animation
+                setTimeout(updateButtonState, 500);
+            });
+            
+            // Initial state update and also on scroll
+            carousel.addEventListener('scroll', updateButtonState);
+            updateButtonState();
+        });
+    </script>
+</body>
+</html>

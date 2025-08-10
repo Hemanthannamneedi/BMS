@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Budget Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 40px) scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+    <div class="relative min-h-screen overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-50 pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-20 right-1/4 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <header class="relative z-10 w-full p-4 md:p-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-5xl font-bold text-indigo-400 tracking-tight">Budget Management Portal</div>
+                <div class="flex space-x-4">
+                    <a href="{{ url_for('home') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">Home</a>
+                    <a href="{{ url_for('about') }}" class="text-indigo-400 hover:text-indigo-400 transition duration-300 font-semibold">About</a>
+                    <a href="{{ url_for('contact') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">Contact</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="relative z-10 flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center">
+            <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Text Section (Left Side) -->
+                <div class="md:w-1/2 md:text-left">
+                    <h1 class="text-5xl md:text-5xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
+                        About Our Portal
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10">
+                        The Budget Management Portal was created to provide student clubs with a modern, transparent, and efficient way to manage their finances. We understand the challenges of handling club funds, from tracking expenses to processing requests, and we built this platform to simplify every step of the process.
+                    </p>
+                </div>
+                <!-- SVG Illustration Section (Right Side) -->
+                <div class="md:w-1/2 flex items-center justify-center">
+                    <svg class="w-full max-w-sm h-auto" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Shapes -->
+                        <rect x="50" y="50" width="400" height="400" rx="24" fill="#1F2937" stroke="#374151" stroke-width="4"/>
+                        <!-- People shapes -->
+                        <circle cx="150" cy="200" r="40" fill="#8B5CF6"/>
+                        <rect x="110" y="240" width="80" height="120" rx="10" fill="#6366F1"/>
+                        <circle cx="350" cy="200" r="40" fill="#8B5CF6"/>
+                        <rect x="310" y="240" width="80" height="120" rx="10" fill="#6366F1"/>
+                        <circle cx="250" cy="200" r="30" fill="#3B82F6"/>
+                        <rect x="220" y="230" width="60" height="90" rx="8" fill="#4338CA"/>
+                        <!-- Connecting lines (representing collaboration) -->
+                        <path d="M190 280 L220 280" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M280 280 L310 280" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M150 360 L250 400 L350 360" stroke="#9CA3AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Text -->
+                        <text x="250" y="450" text-anchor="middle" fill="#E5E7EB" font-size="24" font-weight="bold">Our Team</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <hr class="w-full max-w-5xl my-12 border-t-2 border-gray-700">
+
+            <div class="w-full max-w-5xl text-left mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 border border-gray-700">
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-4">Our Mission</h3>
+                        <p class="text-gray-400">
+                            Our mission is to empower student leaders and treasurers with the tools they need to manage club finances with confidence. We aim to foster a culture of transparency and accountability, ensuring every member knows where their funds are going.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 border border-gray-700">
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-4">The Team</h3>
+                        <p class="text-gray-400">
+                            We are a small team of developers and student leaders who saw a need for a better solution. Our collective experience in both technology and club management drove us to create a portal that is not only powerful but also intuitive and user-friendly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Budget Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 40px) scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+    <div class="relative min-h-screen overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-50 pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-20 right-1/4 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <header class="relative z-10 w-full p-4 md:p-8">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-5xl font-bold text-indigo-400 tracking-tight">Budget Management Portal</div>
+                <div class="flex space-x-4">
+                    <a href="{{ url_for('home') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">Home</a>
+                    
+                    <a href="{{ url_for('about') }}" class="text-gray-200 hover:text-indigo-400 transition duration-300 font-semibold">About</a>
+                    <a href="{{ url_for('contact') }}" class="text-indigo-400 hover:text-indigo-400 transition duration-300 font-semibold">Contact</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="relative z-10 flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center">
+            <div class="max-w-3xl mx-auto flex flex-col md:flex-row md:justify-center md:items-center">
+                <div class="md:text-left md:pr-8 mb-6 md:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-md">
+                        Get in Touch
+                    </h1>
+                </div>
+                <div class="text-center md:text-left bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-md p-6 border border-gray-700 flex-grow">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">Help & Support</h3>
+                    <div class="space-y-4 text-gray-400">
+                        <p><i class="fa-solid fa-envelope text-indigo-400 mr-2"></i> hemanthannamneedi05@gmail.com</p>
+                        <p><i class="fa-solid fa-envelope text-indigo-400 mr-2"></i> vamsikrishnagokaraju123@gmail.com</p>
+                        <p><i class="fa-solid fa-location-dot text-indigo-400 mr-2"></i> Chirala, Bapatla-dist(522101), INDIA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="w-full max-w-5xl my-12 border-t-2 border-gray-700">
+
+            <div class="w-full max-w-xl text-center mt-12">
+                <p class="text-lg md:text-xl text-gray-400">
+                    We're here to help! Whether you have a question, need assistance, or just want to provide feedback, feel free to reach out to us.
+                </p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
